@@ -46,7 +46,6 @@ router.post(
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      console.log("error in adding somi");
       return res.status(400).json({ errors: errors.array() });
     }
     const {
@@ -318,7 +317,7 @@ router.delete("/education/:edu_id", auth, async (req, res) => {
 // @desc     Get user repos from Github
 // @access   Public
 
-router.get("github/:username", (req, res) => {
+router.get("/github/:username", (req, res) => {
   try {
     const options = {
       uri: `https://api.github.com/users/${
